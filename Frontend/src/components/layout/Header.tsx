@@ -38,7 +38,7 @@ export function Header() {
             </div>
             <div>
               <span className="text-xl font-display font-bold text-white">
-                Tru<span className="text-gold-400">qualves</span>
+                Tru<span className="text-gold-400">Qualves</span>
               </span>
             </div>
           </Link>
