@@ -44,6 +44,7 @@ const features = [
 ];
 
 const trustedBy = [
+  "Trusted by Industry Leaders",
   "Leading Pharmaceutical",
   "Global Biotech",
   "Medical Device Corp",
@@ -93,7 +94,7 @@ export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="section-gradient relative overflow-hidden">
+      <section className="section-gradient relative overflow-hidden -mt-20 pt-20">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div 
@@ -220,9 +221,6 @@ export default function Index() {
       >
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-            <span className="text-navy-400 text-sm uppercase tracking-wider">
-              Trusted by Industry Leaders
-            </span>
             <motion.div 
               className="flex flex-wrap justify-center gap-8 md:gap-12"
               variants={staggerContainer}
@@ -233,10 +231,10 @@ export default function Index() {
               {trustedBy.map((company, index) => (
                 <motion.span
                   key={index}
-                  className="text-navy-300 font-medium opacity-60 hover:opacity-100 transition-opacity"
+                  className="text-white/70 font-medium hover:text-white transition-colors"
                   initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 0.6, y: 0 }}
-                  whileHover={{ opacity: 1, scale: 1.05 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.05 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
                 >

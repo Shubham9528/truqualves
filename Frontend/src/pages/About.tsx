@@ -99,7 +99,7 @@ export default function About() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="section-gradient relative overflow-hidden py-24 lg:py-32">
+      <section className="section-gradient relative overflow-hidden py-24 lg:py-32 -mt-20 pt-44 lg:pt-52">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div 

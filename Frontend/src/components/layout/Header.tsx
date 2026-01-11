@@ -33,9 +33,11 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
-              <span className="text-navy-950 font-display font-bold text-xl">T</span>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="TruQualves Logo" 
+              className="h-14 w-auto"
+            />
             <div>
               <span className="text-xl font-display font-bold text-white">
                 Tru<span className="text-gold-400">Qualves</span>

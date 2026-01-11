@@ -73,7 +73,7 @@ export default function Industries() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="section-gradient py-24 lg:py-32">
+      <section className="section-gradient py-24 lg:py-32 -mt-20 pt-44 lg:pt-52">
         <div className="container mx-auto px-6">
           <motion.div 
             className="max-w-3xl"
