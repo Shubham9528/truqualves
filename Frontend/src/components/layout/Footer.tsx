@@ -35,7 +35,7 @@ export function Footer() {
                 <span className="text-navy-950 font-display font-bold text-xl">T</span>
               </div>
               <span className="text-xl font-display font-bold text-white">
-                True<span className="text-gold-400">qualves</span>
+                Tru<span className="text-gold-400">qualves</span>
               </span>
             </Link>
             <p className="text-navy-200 mb-6 max-w-sm">
