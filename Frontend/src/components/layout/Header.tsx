@@ -2,12 +2,6 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -53,24 +47,30 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-1">
             {navigation.map((item) =>
               item.children ? (
-                <DropdownMenu key={item.name}>
-                  <DropdownMenuTrigger className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-navy-100 hover:text-gold-400 transition-colors">
+                <div key={item.name} className="relative group">
+                  <Link
+                    to={item.href}
+                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-navy-100 hover:text-gold-400 transition-colors"
+                  >
                     {item.name}
-                    <ChevronDown className="w-4 h-4" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-navy-900 border-gold-500/20">
-                    {item.children.map((child) => (
-                      <DropdownMenuItem key={child.name} asChild>
+                    <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                  </Link>
+                  
+                  {/* Dropdown Menu */}
+                  <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div className="bg-navy-900 border border-gold-500/20 rounded-lg shadow-xl min-w-[240px] py-2 animate-in fade-in slide-in-from-top-2">
+                      {item.children.map((child) => (
                         <Link
+                          key={child.name}
                           to={child.href}
-                          className="text-navy-100 hover:text-gold-400 hover:bg-navy-800 cursor-pointer"
+                          className="block px-4 py-2.5 text-sm text-navy-100 hover:text-gold-400 hover:bg-navy-800 transition-colors"
                         >
                           {child.name}
                         </Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               ) : (
                 <Link
                   key={item.name}
