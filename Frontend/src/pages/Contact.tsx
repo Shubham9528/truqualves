@@ -1,10 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 
 const contactInfo = [
   {
@@ -46,6 +47,11 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -84,19 +90,39 @@ export default function Contact() {
       {/* Hero */}
       <section className="section-gradient py-24 lg:py-32">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl">
-            <span className="text-gold-400 font-medium text-sm uppercase tracking-wider">
+          <motion.div 
+            className="max-w-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.span 
+              className="text-gold-400 font-medium text-sm uppercase tracking-wider"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+            >
               Contact Us
-            </span>
-            <h1 className="text-4xl lg:text-5xl font-display font-bold text-white mt-4 mb-6">
+            </motion.span>
+            <motion.h1 
+              className="text-4xl lg:text-5xl font-display font-bold text-white mt-4 mb-6"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
               Get Your Free{" "}
               <span className="text-gradient-gold">CSV Consultation</span>
-            </h1>
-            <p className="text-xl text-navy-200">
+            </motion.h1>
+            <motion.p 
+              className="text-xl text-navy-200"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
               Ready to ensure your computerized systems meet regulatory requirements? 
               Contact our validation experts for a free consultation and assessment.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
@@ -105,7 +131,13 @@ export default function Contact() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Info */}
-            <div className="lg:col-span-1 space-y-8">
+            <motion.div 
+              className="lg:col-span-1 space-y-8"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               <div>
                 <h2 className="text-2xl font-display font-bold text-foreground mb-4">
                   Get In Touch
@@ -118,7 +150,14 @@ export default function Contact() {
 
               <div className="space-y-6">
                 {contactInfo.map((item, index) => (
-                  <div key={index} className="flex gap-4">
+                  <motion.div 
+                    key={index} 
+                    className="flex gap-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                  >
                     <div className="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center flex-shrink-0">
                       <item.icon className="w-6 h-6 text-gold-500" />
                     </div>
@@ -132,11 +171,17 @@ export default function Contact() {
                         </p>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
-              <div className="p-6 bg-navy-950 rounded-xl border border-gold-500/10">
+              <motion.div 
+                className="p-6 bg-navy-950 rounded-xl border border-gold-500/10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+              >
                 <h3 className="font-semibold text-white mb-3">What to Expect</h3>
                 <ul className="space-y-2">
                   {[
@@ -145,17 +190,30 @@ export default function Contact() {
                     "Custom proposal within 48 hours",
                     "No obligation assessment",
                   ].map((item, index) => (
-                    <li key={index} className="flex items-center gap-2 text-navy-200 text-sm">
+                    <motion.li 
+                      key={index} 
+                      className="flex items-center gap-2 text-navy-200 text-sm"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4 + index * 0.05, duration: 0.3 }}
+                    >
                       <CheckCircle className="w-4 h-4 text-gold-400" />
                       {item}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Form */}
-            <div className="lg:col-span-2">
+            <motion.div 
+              className="lg:col-span-2"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               <form onSubmit={handleSubmit} className="card-elevated p-8">
                 <h2 className="text-2xl font-display font-bold text-foreground mb-6">
                   Request Your Free Consultation
@@ -279,7 +337,7 @@ export default function Contact() {
                   )}
                 </Button>
               </form>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
