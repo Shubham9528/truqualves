@@ -111,8 +111,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-gold-500 flex-shrink-0" />
-                <a href="mailto:info@truequalves.com" className="text-navy-200 hover:text-gold-400 text-sm">
-                  info@truequalves.com
+                <a href="mailto:info@truqualves.com" className="text-navy-200 hover:text-gold-400 text-sm">
+                  info@truqualves.com
                 </a>
               </li>
             </ul>
@@ -122,7 +122,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-navy-400 text-sm">
-            © {new Date().getFullYear()} Truequalves. All rights reserved.
+            © {new Date().getFullYear()} Truqualves. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link to="/privacy" className="text-navy-400 hover:text-gold-400 text-sm">

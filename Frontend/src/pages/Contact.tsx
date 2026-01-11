@@ -20,7 +20,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@truequalves.com", "sales@truequalves.com"],
+    details: ["info@truqualves.com", "sales@truqualves.com"],
   },
 ];
 

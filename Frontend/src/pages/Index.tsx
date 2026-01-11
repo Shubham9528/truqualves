@@ -314,14 +314,14 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div {...slideInLeft}>
               <span className="text-gold-500 font-medium text-sm uppercase tracking-wider">
-                Why Truequalves
+                Why Truqualves
               </span>
               <h2 className="text-3xl lg:text-4xl font-display font-bold text-white mt-4 mb-6">
                 Proven Expertise in Regulatory Compliance
               </h2>
               <p className="text-lg text-navy-200 mb-8">
                 With decades of experience navigating complex regulatory landscapes, 
-                Truequalves delivers validation solutions that protect your business 
+                Truqualves delivers validation solutions that protect your business 
                 and accelerate your path to compliance.
               </p>
 
@@ -453,7 +453,7 @@ export default function Index() {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             Get a free assessment of your current validation status and discover 
-            how Truequalves can help you achieve regulatory compliance.
+            how Truqualves can help you achieve regulatory compliance.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

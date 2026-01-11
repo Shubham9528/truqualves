@@ -66,14 +66,14 @@ export default function About() {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl">
             <span className="text-gold-400 font-medium text-sm uppercase tracking-wider">
-              About Truequalves
+              About Truqualves
             </span>
             <h1 className="text-4xl lg:text-5xl font-display font-bold text-white mt-4 mb-6">
               Your Trusted Partner in{" "}
               <span className="text-gradient-gold">Regulatory Compliance</span>
             </h1>
             <p className="text-xl text-navy-200">
-              For over two decades, Truequalves has been the trusted CSV partner 
+              For over two decades, Truqualves has been the trusted CSV partner 
               for pharmaceutical, biotech, and medical device companies worldwide. 
               We combine deep regulatory expertise with practical, business-focused solutions.
             </p>
@@ -201,7 +201,7 @@ export default function About() {
             Ready to Work With Us?
           </h2>
           <p className="text-xl text-navy-800 mb-10 max-w-2xl mx-auto">
-            Join the growing list of companies that trust Truequalves for their 
+            Join the growing list of companies that trust Truqualves for their 
             Computer System Validation needs.
           </p>
           <Link to="/contact">
