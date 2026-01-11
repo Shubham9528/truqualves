@@ -77,7 +77,7 @@ export function HeroSection() {
               <Link to="/services">
                 <Button
                   variant="outline"
-                  className="border-gold-500/30 text-gold-400 hover:bg-gold-500/10 text-base px-6 py-3"
+                  className="border-white/30 text-white bg-transparent hover:bg-white/10 hover:border-white/50 hover:text-white text-base px-6 py-3 transition-all duration-300"
                 >
                   Explore Services
                 </Button>
