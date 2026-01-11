@@ -94,31 +94,15 @@ export default function Index() {
     <Layout>
       {/* Hero Section */}
       <section className="section-gradient relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div 
-            className="absolute top-1/4 -right-1/4 w-1/2 h-1/2 bg-gold-500/5 rounded-full blur-3xl"
-            animate={{ 
-              scale: [1, 1.1, 1],
-              opacity: [0.5, 0.8, 0.5],
-            }}
-            transition={{ 
-              duration: 8, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
-          />
-          <motion.div 
-            className="absolute bottom-0 -left-1/4 w-1/2 h-1/2 bg-gold-500/3 rounded-full blur-3xl"
-            animate={{ 
-              scale: [1.1, 1, 1.1],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{ 
-              duration: 10, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div 
+            className="absolute inset-0" 
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              maskImage: 'radial-gradient(circle at bottom right, black 10%, transparent 35%)',
+              WebkitMaskImage: 'radial-gradient(circle at bottom right, black 10%, transparent 35%)',
+            }} 
           />
         </div>
 
@@ -211,6 +195,22 @@ export default function Index() {
             </motion.div>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1.5 h-1.5 rounded-full bg-gold-400"
+            />
+          </div>
+        </motion.div>
       </section>
 
       {/* Trusted By */}
