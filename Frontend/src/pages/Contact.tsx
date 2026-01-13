@@ -1,10 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
 import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import axios from "axios";
+import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 
 const contactInfo = [
@@ -35,7 +36,6 @@ const services = [
 ];
 
 export default function Contact() {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -56,24 +56,29 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/contact`, formData);
 
-    toast({
-      title: "Message Sent Successfully!",
-      description: "Our team will contact you within 24 hours.",
-    });
+      toast.success(data.message || "Message sent successfully! Our team will contact you within 24 hours.");
 
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      company: "",
-      phone: "",
-      service: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+    } catch (error) {
+      const errorMessage = axios.isAxiosError(error) 
+        ? error.response?.data?.message 
+        : "Failed to send message. Please try again later.";
+      
+      toast.error(errorMessage || "Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (

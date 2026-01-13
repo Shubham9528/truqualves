@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { HeroSection, TrustedBySection } from "./LandingPage";
 
@@ -10,7 +10,11 @@ const CTASection = lazy(() => import("./LandingPage/CTASection").then(m => ({ de
 // Minimal loading fallback to avoid layout shift
 const SectionFallback = () => <div className="min-h-[200px]" />;
 
+
 export default function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Layout>
       {/* Above the fold - loaded immediately */}
