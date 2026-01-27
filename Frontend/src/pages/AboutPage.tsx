@@ -99,7 +99,7 @@ export default function AboutPage() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {stats.map((stat, index) => (
                             <AnimatedContent key={index} delay={index * 0.1} className="text-center">
-                                <p className="text-4xl md:text-5xl font-bold text-teal-600 mb-2">{stat.number}</p>
+                                <p className="text-4xl md:text-5xl font-bold  mb-2">{stat.number}</p>
                                 <p className="text-gray-600 font-medium">{stat.label}</p>
                             </AnimatedContent>
                         ))}
