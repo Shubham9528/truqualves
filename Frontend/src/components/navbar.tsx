@@ -64,9 +64,9 @@ export default function Navbar() {
                             <MenuIcon className="size-6.5" />
                         </button>
 
-                        <a href="#contact" className="hidden md:inline-block py-2.5 px-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-teal-500 text-white rounded-full">
+                        <Link to="/contact" className="hidden md:inline-block py-2.5 px-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-teal-500 text-white rounded-full hover:bg-teal-600 transition-colors">
                             Get a Consultation
-                        </a>
+                        </Link>
                     </div>
                 </nav>
             </AnimatedContent>
@@ -103,9 +103,9 @@ export default function Navbar() {
                             </Link>
                         )
                     ))}
-                    <a href="#contact" className="py-2.5 px-6 w-max text-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-linear-to-tl from-teal-600 to-teal-500 text-white rounded-full">
+                    <Link to="/contact" className="py-2.5 px-6 w-max text-sm shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] bg-linear-to-tl from-teal-600 to-teal-500 text-white rounded-full" onClick={() => setIsMenuOpen(false)}>
                         Get a Consultation
-                    </a>
+                    </Link>
                 </div>
             </div>
         </>

@@ -19,6 +19,6 @@ export const links: ILink[] = [
     },
     {
         name: "Contact",
-        href: "#contact",
+        href: "/contact",
     }
 ];
