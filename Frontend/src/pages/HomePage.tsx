@@ -34,20 +34,22 @@ export default function HomePage() {
             </Suspense>
             
             <Suspense fallback={<SectionLoader />}>
-                <FaqSection />
-            </Suspense>
-            
-            <Suspense fallback={<SectionLoader />}>
                 <OurTeamSection />
             </Suspense>
             
             <Suspense fallback={<SectionLoader />}>
                 <PricingSection />
             </Suspense>
+
+            <Suspense fallback={<SectionLoader />}>
+                <FaqSection />
+            </Suspense>
             
             <Suspense fallback={<SectionLoader />}>
                 <TestimonialSection />
             </Suspense>
+            
+            
         </>
     );
 }
