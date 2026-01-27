@@ -42,10 +42,10 @@ export const pricing: IPricingPlan[] = [
         linkText: "Contact Sales",
         linkUrl: "#contact",
         features: [
-            "Unlimited system validations",
+            "System validations",
             "Dedicated validation team",
-            "Ongoing compliance monitoring",
-            "Audit preparation & support",
+            "Ongoing compliance",
+            "Priority support",
             "24/7 dedicated account manager",
         ],
     },
