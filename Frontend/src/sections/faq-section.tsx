@@ -2,6 +2,7 @@ import AnimatedContent from "../components/animated-content";
 import SectionTitle from "../components/section-title";
 import { faqs } from "../data/faqs";
 import { ChevronDownIcon, CircleQuestionMarkIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function FaqSection() {
     return (
@@ -38,12 +39,12 @@ export default function FaqSection() {
                                 Still have questions? Our team help you get started.
                             </h3>
 
-                            <a
-                                href="https://prebuiltui.com?ref=buildify"
-                                className="bg-white w-max shrink-0 hover:bg-gray-100 px-5 py-2 rounded-full"
+                            <Link
+                                to="/contact"
+                                className="bg-white text-teal-700 font-medium w-max shrink-0 hover:bg-gray-100 px-5 py-2 rounded-full"
                             >
                                 Contact support
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
