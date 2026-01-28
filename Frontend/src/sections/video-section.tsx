@@ -1,7 +1,10 @@
+import { lazy , Suspense } from "react";
 import AnimatedContent from "../components/animated-content";
 import SectionTitle from "../components/section-title";
 import { ShieldCheckIcon, CheckCircle2Icon } from "lucide-react";
-import ReactPlayer from "react-player";
+const ReactPlayer = lazy(() => import("react-player"));
+
+
 
 export default function VideoSection() {
     return (
@@ -17,14 +20,18 @@ export default function VideoSection() {
                     {/* Video Player */}
                     <AnimatedContent className="relative group">
                         <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-teal-50 to-blue-50 border-2 border-gray-200 shadow-xl">
-                            <ReactPlayer
-                                src="https://www.youtube.com/watch?v=nFWNSKedptI"
-                                width="100%"
-                                height="100%"
-                                controls={true}
-                                className="react-player"
-                            />
+                            
+                            <Suspense fallback={<div>Loading...</div>}>
+                                <ReactPlayer
+                                    src="https://www.youtube.com/watch?v=nFWNSKedptI"
+                                    width="100%"
+                                    height="100%"
+                                    controls={true}
+                                    className="react-player"
+                                />
+                            </Suspense>
                         </div>
+                        
                         
                         {/* Glow effect */}
                         <div className="absolute -inset-4 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-3xl blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
