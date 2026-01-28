@@ -4,7 +4,7 @@ import type { ILink } from "../../types";
 import { MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import AnimatedContent from "./animated-content";
+// import AnimatedContent from "./animated-content";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,8 +23,8 @@ export default function Navbar() {
 
     return (
         <>
-            <AnimatedContent reverse>
-                <nav className='fixed w-full top-0 z-50 px-4 md:px-16 lg:px-24 xl:px-32 py-4 border-b transition-all duration-300 border-neutral-300'>
+            
+                <nav className='fixed w-full top-0 z-50 px-4 md:px-16 lg:px-24 xl:px-32  border-b transition-all duration-300 border-neutral-300 backdrop-blur-md bg-white/25'>
                     <div className="max-w-7xl mx-auto flex items-center justify-between">
                         <Link to="/" className="flex items-center gap-3">
                             <img src="/assets/logo.png" alt="TruQual Logo" width={48} height={48} />
@@ -71,7 +71,7 @@ export default function Navbar() {
                         </Link>
                     </div>
                 </nav>
-            </AnimatedContent>
+            
             <div className={`fixed top-0 right-0 z-60 w-full bg-white shadow-xl shadow-black/5 transition-all duration-300 ease-in-out ${isMenuOpen ? "h-92 overflow-hidden" : "h-0 overflow-hidden"}`}>
                 <div className="flex items-center justify-between p-4">
                     <div className="flex items-center gap-2">
