@@ -34,27 +34,29 @@ export default function Navbar() {
                             </div>
                         </Link>
 
-                        <div className="hidden md:flex gap-3">
+                        <div className="hidden md:flex gap-6">
                             {links.map((link: ILink) => (
                                 link.href.startsWith('#') ? (
                                     <a 
                                         key={link.name} 
                                         href={link.href} 
-                                        className="py-1 px-3 hover:text-zinc-500"
+                                        className={`group flex flex-col gap-0.5 text-slate-900 font-medium`}
                                         onClick={(e) => {
                                             e.preventDefault();
                                             handleLinkClick(link.href);
                                         }}
                                     >
                                         {link.name}
+                                        <div className={`bg-teal-600 h-0.5 w-0 group-hover:w-full transition-all duration-300`} />
                                     </a>
                                 ) : (
                                     <Link 
                                         key={link.name} 
                                         to={link.href} 
-                                        className={`py-1 px-3 hover:text-zinc-500 ${location.pathname === link.href ? 'text-teal-600' : ''}`}
+                                        className={`group flex flex-col gap-0.5 ${location.pathname === link.href ? 'text-teal-600' : 'text-slate-900'} font-medium`}
                                     >
                                         {link.name}
+                                        <div className={`bg-teal-600 h-0.5 w-0 group-hover:w-full transition-all duration-300 ${location.pathname === link.href ? 'w-full' : ''}`} />
                                     </Link>
                                 )
                             ))}
