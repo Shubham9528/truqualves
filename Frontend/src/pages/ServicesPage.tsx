@@ -19,7 +19,7 @@ export default function ServicesPage() {
                             <ShieldCheckIcon className="w-4 h-4 text-teal-600" />
                             <span className="text-sm font-semibold text-teal-700">Our Services</span>
                         </div>
-                        <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6 font-urbanist">
+                        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 font-urbanist">
                             Comprehensive Validation Services
                         </h1>
                         <p className="text-xl text-gray-600 leading-relaxed">

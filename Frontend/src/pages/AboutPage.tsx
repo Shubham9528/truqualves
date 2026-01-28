@@ -52,7 +52,7 @@ export default function AboutPage() {
                                 <ShieldCheckIcon className="w-4 h-4 text-teal-600" />
                                 <span className="text-sm font-semibold text-teal-700">About TruQual</span>
                             </div>
-                            <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6 font-urbanist">
+                            <h1 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-urbanist">
                                 Your Trusted Partner in Validation Excellence
                             </h1>
                             <p className="text-xl text-gray-600 leading-relaxed mb-8">
