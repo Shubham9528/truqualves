@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
-import HeroSection from "./home/hero-section";
-import StatsSection from "./home/stats-section";
+// import HeroSection from "./home/hero-section";
+const HeroSection = lazy(() => import("./home/hero-section"));
+const StatsSection = lazy(() => import("./home/stats-section"));
 
 // Lazy load below-the-fold sections for better performance
 const VideoSection = lazy(() => import("./home/video-section"));
