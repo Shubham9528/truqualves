@@ -38,24 +38,33 @@ export default function ServicesPage() {
                             <AnimatedContent 
                                 key={index} 
                                 delay={index * 0.1}
-                                className={`${service.cardBg} p-8 rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300 group`}
+                                className="h-56 [perspective:1000px] group cursor-pointer"
                             >
-                                <div className={`${service.iconBg} w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                                    <service.icon className="w-7 h-7 text-white" />
+                                <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                                    {/* Front Side */}
+                                    <div className={`${service.cardBg} absolute w-full h-full [backface-visibility:hidden] flex flex-col items-center justify-center p-4 rounded-2xl border border-gray-200 text-center`}>
+                                        <div className={`${service.iconBg} w-12 h-12 rounded-2xl flex items-center justify-center mb-4`}>
+                                            <service.icon className="w-6 h-6 text-white" />
+                                        </div>
+                                        <h3 className="text-lg font-bold text-slate-900 font-urbanist">
+                                            {service.title}
+                                        </h3>
+                                    </div>
+
+                                    {/* Back Side */}
+                                    <div className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white flex flex-col items-center justify-center p-4 rounded-2xl border border-gray-200 text-center shadow-xl">
+                                        <p className="text-gray-600 leading-relaxed mb-3 text-xs line-clamp-4">
+                                            {service.description}
+                                        </p>
+                                        <a 
+                                            href="#contact" 
+                                            className="inline-flex items-center gap-2 text-teal-600 text-sm font-semibold hover:gap-3 transition-all"
+                                        >
+                                            Learn More
+                                            <ArrowRightIcon className="w-3 h-3" />
+                                        </a>
+                                    </div>
                                 </div>
-                                <h3 className="text-2xl font-bold text-slate-900 mb-4 font-urbanist">
-                                    {service.title}
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed mb-6">
-                                    {service.description}
-                                </p>
-                                <a 
-                                    href="#contact" 
-                                    className="inline-flex items-center gap-2 text-teal-600 font-semibold hover:gap-3 transition-all"
-                                >
-                                    Learn More
-                                    <ArrowRightIcon className="w-4 h-4" />
-                                </a>
                             </AnimatedContent>
                         ))}
                     </div>
@@ -71,46 +80,46 @@ export default function ServicesPage() {
                         subtitle="We combine deep regulatory knowledge with modern technological approaches to deliver validation services that are both rigorous and efficient."
                     />
 
-                    <div className="grid md:grid-cols-2 gap-8 mt-16">
-                        <AnimatedContent className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
-                            <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
-                                <CheckCircle2Icon className="w-6 h-6 text-teal-600" />
+                    <div className="grid md:grid-cols-2 gap-6 mt-12">
+                        <AnimatedContent className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
+                            <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
+                                <CheckCircle2Icon className="w-5 h-5 text-teal-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900 mb-4">Regulatory Integrity</h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">Regulatory Integrity</h3>
+                            <p className="text-gray-600 leading-relaxed text-sm">
                                 Our frameworks are strictly aligned with GAMP 5, 21 CFR Part 11, and Annex 11, 
                                 ensuring you are always audit-ready with complete traceability and documentation integrity.
                             </p>
                         </AnimatedContent>
 
-                        <AnimatedContent delay={0.1} className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
-                            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                                <CheckCircle2Icon className="w-6 h-6 text-blue-600" />
+                        <AnimatedContent delay={0.1} className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
+                            <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                                <CheckCircle2Icon className="w-5 h-5 text-blue-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900 mb-4">Streamlined Documentation</h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">Streamlined Documentation</h3>
+                            <p className="text-gray-600 leading-relaxed text-sm">
                                 Move away from paper-heavy processes. We implement digital validation strategies 
                                 that reduce cycle times by 30-40% while maintaining full regulatory compliance.
                             </p>
                         </AnimatedContent>
 
-                        <AnimatedContent delay={0.2} className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
-                            <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                                <CheckCircle2Icon className="w-6 h-6 text-purple-600" />
+                        <AnimatedContent delay={0.2} className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
+                            <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                                <CheckCircle2Icon className="w-5 h-5 text-purple-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900 mb-4">Expert Support</h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">Expert Support</h3>
+                            <p className="text-gray-600 leading-relaxed text-sm">
                                 Our team consists of senior validation engineers and QA specialists with decades 
                                 of combined life sciences experience across pharmaceutical and biotech sectors.
                             </p>
                         </AnimatedContent>
 
-                        <AnimatedContent delay={0.3} className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm">
-                            <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                                <CheckCircle2Icon className="w-6 h-6 text-orange-600" />
+                        <AnimatedContent delay={0.3} className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
+                            <div className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                <CheckCircle2Icon className="w-5 h-5 text-orange-600" />
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900 mb-4">Proven Track Record</h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">Proven Track Record</h3>
+                            <p className="text-gray-600 leading-relaxed text-sm">
                                 With 500+ successful validation projects and a 98% first-time audit pass rate, 
                                 we deliver results that matter to your business and regulatory compliance.
                             </p>
