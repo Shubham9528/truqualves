@@ -82,7 +82,7 @@ export default function ContactPage() {
                             <p className='text-xs text-gray-500 max-w-[200px] leading-tight'>
                                 By submitting, you agree to our <a href="#" className='text-teal-600 hover:text-teal-700 font-medium hover:underline'>Terms</a> and <a href="#" className='text-teal-600 hover:text-teal-700 font-medium hover:underline'>Privacy Policy</a>.
                             </p>
-                            <button type="submit" className='bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white text-sm font-semibold px-8 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-teal-500/25 cursor-pointer'>
+                            <button type="submit" className='bg-teal-500 hover:bg-teal-600 text-white text-sm font-semibold px-8 py-3 rounded-full shadow-[inset_0_2px_4px_rgba(255,255,255,0.6)] transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-teal-500/25 cursor-pointer'>
                                 Submit
                             </button>
                         </div>
