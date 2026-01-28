@@ -1,14 +1,14 @@
 import { lazy, Suspense } from "react";
-import HeroSection from "../sections/hero-section";
-import StatsSection from "../sections/stats-section";
+import HeroSection from "./home/hero-section";
+import StatsSection from "./home/stats-section";
 
 // Lazy load below-the-fold sections for better performance
-const VideoSection = lazy(() => import("../sections/video-section"));
-const FeaturesSection = lazy(() => import("../sections/features-section"));
-const FaqSection = lazy(() => import("../sections/faq-section"));
-const OurTeamSection = lazy(() => import("../sections/our-team"));
-const PricingSection = lazy(() => import("../sections/pricing-section"));
-const TestimonialSection = lazy(() => import("../sections/testimonial-section"));
+const VideoSection = lazy(() => import("./home/video-section"));
+const FeaturesSection = lazy(() => import("./home/features-section"));
+const FaqSection = lazy(() => import("./home/faq-section"));
+const OurTeamSection = lazy(() => import("./home/our-team"));
+const PricingSection = lazy(() => import("./home/pricing-section"));
+const TestimonialSection = lazy(() => import("./home/testimonial-section"));
 
 // Loading placeholder component
 const SectionLoader = () => (

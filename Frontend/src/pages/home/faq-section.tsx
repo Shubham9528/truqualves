@@ -1,6 +1,6 @@
-import AnimatedContent from "../components/animated-content";
-import SectionTitle from "../components/section-title";
-import { faqs } from "../data/faqs";
+import AnimatedContent from "../../components/animated-content";
+import SectionTitle from "../../components/section-title";
+import { faqs } from "../../data/faqs";
 import { ChevronDownIcon, CircleQuestionMarkIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 

@@ -1,7 +1,7 @@
-import AnimatedContent from "../components/animated-content";
+import AnimatedContent from "../../components/animated-content";
 import { SparkleIcon, StarIcon } from "lucide-react";
 import { Link } from "react-router-dom";
-import CustomIcon from "../components/custom-icon";
+import CustomIcon from "../../components/custom-icon";
 
 export default function HeroSection() {
     return (

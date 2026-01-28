@@ -1,7 +1,7 @@
 import { ArrowUpRightIcon, SparkleIcon } from "lucide-react";
-import { features } from "../data/features";
-import AnimatedContent from "../components/animated-content";
-import SectionTitle from "../components/section-title";
+import { features } from "../../data/features";
+import AnimatedContent from "../../components/animated-content";
+import SectionTitle from "../../components/section-title";
 
 export default function FeaturesSection() {
     return (

@@ -1,6 +1,6 @@
-import AnimatedContent from "../components/animated-content";
-import SectionTitle from "../components/section-title";
-import { testimonials } from "../data/testimonials";
+import AnimatedContent from "../../components/animated-content";
+import SectionTitle from "../../components/section-title";
+import { testimonials } from "../../data/testimonials";
 import { ShieldCheckIcon, StarIcon } from "lucide-react";
 
 export default function TestimonialSection() {

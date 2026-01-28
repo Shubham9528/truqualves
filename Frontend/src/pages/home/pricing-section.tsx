@@ -1,6 +1,6 @@
-import AnimatedContent from "../components/animated-content";
-import SectionTitle from "../components/section-title";
-import { pricing } from "../data/pricing";
+import AnimatedContent from "../../components/animated-content";
+import SectionTitle from "../../components/section-title";
+import { pricing } from "../../data/pricing";
 import NumberFlow from "@number-flow/react";
 import { CheckIcon, CircleDollarSignIcon } from "lucide-react";
 import { useState } from "react";

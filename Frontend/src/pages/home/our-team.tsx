@@ -1,6 +1,6 @@
-import AnimatedContent from "../components/animated-content";
-import SectionTitle from "../components/section-title";
-import { team } from "../data/team";
+import AnimatedContent from "../../components/animated-content";
+import SectionTitle from "../../components/section-title";
+import { team } from "../../data/team";
 import { HandshakeIcon } from "lucide-react";
 
 export default function OurTeamSection() {

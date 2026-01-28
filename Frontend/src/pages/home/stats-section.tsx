@@ -1,4 +1,4 @@
-import CountUp from "../components/count-number";
+import CountUp from "../../components/count-number";
 
 export default function StatsSection() {
     return (

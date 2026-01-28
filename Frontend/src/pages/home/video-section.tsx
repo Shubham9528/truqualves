@@ -1,6 +1,6 @@
 import { lazy , Suspense } from "react";
-import AnimatedContent from "../components/animated-content";
-import SectionTitle from "../components/section-title";
+import AnimatedContent from "../../components/animated-content";
+import SectionTitle from "../../components/section-title";
 import { ShieldCheckIcon, CheckCircle2Icon } from "lucide-react";
 const ReactPlayer = lazy(() => import("react-player"));
 
