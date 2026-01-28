@@ -1,4 +1,4 @@
-import { LinkedinIcon, MailIcon, PhoneIcon } from "lucide-react";
+// import { LinkedinIcon, MailIcon, PhoneIcon } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -21,9 +21,9 @@ export default function Footer() {
                                 <span className="text-xs text-slate-600 font-medium">Validation Expert Service</span>
                             </div>
                         </a>
-                        <p className="text-sm/7 mt-6">TruQual provides expert Computer System Validation (CSV) services for pharmaceutical and biotech companies, ensuring regulatory compliance with FDA 21 CFR Part 11, EU Annex 11, and GAMP 5 standards.</p>
+                        <p className="text-sm/7 mt-6">TruQual provides expert Computer System Validation (CSV) services for pharmaceutical and biotech companies</p>
                         
-                        <div className="flex gap-4 mt-6">
+                        {/* <div className="flex gap-4 mt-6">
                             <a href="#" className="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 hover:bg-teal-100 transition">
                                 <LinkedinIcon className="w-5 h-5" />
                             </a>
@@ -33,16 +33,14 @@ export default function Footer() {
                             <a href="tel:+1234567890" className="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 hover:bg-teal-100 transition">
                                 <PhoneIcon className="w-5 h-5" />
                             </a>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="flex flex-col lg:items-center lg:justify-center">
                         <div className="flex flex-col text-sm space-y-2.5">
                             <h2 className="font-semibold mb-5 text-gray-800">Quick Links</h2>
-                            <a className="hover:text-teal-600 transition" href="/">Home</a>
-                            <a className="hover:text-teal-600 transition" href="/services">Services</a>
-                            <a className="hover:text-teal-600 transition" href="/blogs">Blogs</a>
-                            <a className="hover:text-teal-600 transition" href="#about">About Us</a>
-                            <a className="hover:text-teal-600 transition" href="#contact">Contact</a>
+                            <a className="hover:text-teal-600 transition" href="/">Linkedin</a>
+                            <a className="hover:text-teal-600 transition" href="/">Mail</a>
+                            <a className="hover:text-teal-600 transition" href="/">Phone</a>
                         </div>
                     </div>
                     <div>
@@ -51,7 +49,7 @@ export default function Footer() {
                             <p>Get the latest insights on validation, compliance, and regulatory updates delivered to your inbox.</p>
                             <div className="flex items-center justify-center gap-2 p-2 rounded-md bg-teal-50">
                                 <input className="focus:ring-2 bg-white ring-teal-500 outline-none w-full max-w-64 py-2 rounded px-2" type="email" placeholder="Enter your email" />
-                                <button className="bg-teal-500 px-4 py-2 text-white rounded hover:bg-teal-600 transition">Subscribe</button>
+                                <button className="bg-teal-500 px-4 py-2 text-white rounded-full hover:bg-teal-600 transition">Subscribe</button>
                             </div>
                         </div>
                     </div>
