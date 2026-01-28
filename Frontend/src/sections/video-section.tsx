@@ -1,7 +1,7 @@
 import AnimatedContent from "../components/animated-content";
 import SectionTitle from "../components/section-title";
-import { ShieldCheckIcon, CheckCircle2Icon, PlayCircleIcon } from "lucide-react";
-// import ReactPlayer from "react-player";
+import { ShieldCheckIcon, CheckCircle2Icon } from "lucide-react";
+import ReactPlayer from "react-player";
 
 export default function VideoSection() {
     return (
@@ -17,30 +17,13 @@ export default function VideoSection() {
                     {/* Video Player */}
                     <AnimatedContent className="relative group">
                         <div className="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br from-teal-50 to-blue-50 border-2 border-gray-200 shadow-xl">
-                            {/* Placeholder for video - replace with actual video */}
-                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-teal-500/10 to-blue-500/10">
-                                <div className="text-center">
-                                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-teal-500/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-teal-500/30 transition-all duration-300">
-                                        <PlayCircleIcon className="w-12 h-12 text-teal-600 group-hover:scale-110 transition-transform" />
-                                    </div>
-                                    <p className="text-sm text-gray-600 font-medium">Watch Our Story</p>
-                                </div>
-                            </div>
-                            
-                            {/* Uncomment when you have a video */}
-                            {/* <video 
-                                className="w-full h-full object-cover"
-                                controls
-                                poster="/assets/video-thumbnail.jpg"
-                            >
-                                <source src="/assets/truqual-intro.mp4" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video> */}
-                            
-                            {/* Decorative elements */}
-                            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-semibold text-teal-600 border border-teal-100">
-                                2:30 min
-                            </div>
+                            <ReactPlayer
+                                src="https://www.youtube.com/watch?v=nFWNSKedptI"
+                                width="100%"
+                                height="100%"
+                                controls={true}
+                                className="react-player"
+                            />
                         </div>
                         
                         {/* Glow effect */}
