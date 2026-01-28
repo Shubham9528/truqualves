@@ -1,5 +1,6 @@
 import AnimatedContent from "../components/animated-content";
 import { SparkleIcon, StarIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 import CustomIcon from "../components/custom-icon";
 
 export default function HeroSection() {
@@ -38,10 +39,10 @@ export default function HeroSection() {
                     </p>
                 </AnimatedContent>
                 <AnimatedContent className="flex flex-col md:flex-row items-center gap-4 mt-6 w-full md:w-auto">
-                    <a href="#contact" className="py-3 md:py-2.5 w-full md:w-auto px-8 border border-teal-200 bg-linear-to-tl from-teal-600 to-teal-500 text-white text-center rounded-full">
+                    <Link to="/contact" className="py-3 md:py-2.5 w-full md:w-auto px-8 border border-teal-200 bg-linear-to-tl from-teal-600 to-teal-500 text-white text-center rounded-full hover:bg-teal-600 transition-colors">
                         Get a Consultation
-                    </a>
-                    <a href="#services" className="relative py-3 md:py-2.5 w-full md:w-auto px-8 bg-white/50 text-gray-600 font-medium text-center border border-white rounded-full">
+                    </Link>
+                    <Link to="/services" className="relative py-3 md:py-2.5 w-full md:w-auto px-8 bg-white/50 text-gray-600 font-medium text-center border border-white rounded-full hover:bg-white transition-colors">
                         Explore Services
                         <AnimatedContent direction="horizontal" className="absolute size-8 pointer-events-none right-0 top-full -translate-y-1/2">
                             <img
@@ -51,7 +52,7 @@ export default function HeroSection() {
                                 height={24}
                             />
                         </AnimatedContent>
-                    </a>
+                    </Link>
                 </AnimatedContent>
             </div>
         </section>
