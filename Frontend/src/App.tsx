@@ -5,13 +5,12 @@ import LenisScroll from "./components/lenis";
 import Navbar from "./components/navbar";
 
 // Lazy load page components
-const Dashboard = lazy(() => import("./dashboard/App"));
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const BlogsPage = lazy(() => import("./pages/BlogsPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
-
+const Dashboard = lazy(() => import("./dashboard/App"));
 const MainLayout = () => {
     return (
         <div>
