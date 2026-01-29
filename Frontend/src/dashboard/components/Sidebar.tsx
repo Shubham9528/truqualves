@@ -1,0 +1,118 @@
+
+import React from 'react';
+import { ICONS } from '../constants';
+import type { ViewType } from '../types';
+
+interface SidebarProps {
+  activeView: ViewType;
+  setActiveView: (view: ViewType) => void;
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isOpen, setIsOpen }) => {
+  const mainNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
+    { label: 'Dashboard', icon: 'LayoutDashboard' },
+    { label: 'Blogs', icon: 'BookOpen' }
+  ];
+
+  const secondaryNavItems: { label: ViewType; icon: keyof typeof ICONS }[] = [
+    { label: 'Settings', icon: 'Settings' },
+    { label: 'Support', icon: 'HelpCircle' }
+  ];
+
+  const NavButton: React.FC<{ item: { label: ViewType; icon: keyof typeof ICONS } }> = ({ item }) => {
+    const Icon = ICONS[item.icon];
+    const isActive = activeView === item.label;
+    return (
+      <button
+        onClick={() => {
+          setActiveView(item.label);
+          if (window.innerWidth < 1024) setIsOpen(false);
+        }}
+        className={`w-full flex items-center p-3 rounded-xl transition-all group ${
+          isActive 
+            ? 'bg-blue-50 text-blue-600' 
+            : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+        }`}
+      >
+        <Icon size={20} className={`${isActive ? 'text-blue-600' : 'group-hover:text-slate-800'}`} />
+        {/* On mobile, we always want to show the text if the sidebar is open */}
+        <span className={`ml-3 font-medium text-sm transition-all duration-200 
+          ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0 overflow-hidden'}`}>
+          {item.label}
+        </span>
+        {isActive && isOpen && (
+          <div className="ml-auto w-1.5 h-1.5 rounded-full bg-blue-600" />
+        )}
+      </button>
+    );
+  };
+
+  return (
+    <aside 
+      className={`fixed left-0 top-0 h-screen bg-white border-r border-slate-200 transition-all duration-300 z-50 
+      ${isOpen ? 'w-64 translate-x-0' : 'w-20 -translate-x-full lg:translate-x-0'} 
+      overflow-hidden`}
+    >
+      <div className="flex flex-col h-full w-64 lg:w-auto">
+        {/* Logo Section */}
+        <div className="h-16 flex items-center px-6 border-b border-slate-100 shrink-0">
+          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shrink-0">
+            T
+          </div>
+          <span className={`ml-3 font-poppins font-bold text-xl text-slate-800 tracking-tight transition-all duration-200
+            ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0 overflow-hidden'}`}>
+            TruQual
+          </span>
+          {/* Mobile close button */}
+          <button 
+            onClick={() => setIsOpen(false)}
+            className="ml-auto p-2 text-slate-400 hover:text-slate-600 lg:hidden"
+          >
+            <ICONS.X size={20} />
+          </button>
+        </div>
+
+        {/* Navigation Items */}
+        <div className="flex-1 overflow-y-auto py-6 px-3 no-scrollbar space-y-6">
+          <div>
+            <p className={`px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest transition-opacity
+              ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0'}`}>Main Menu</p>
+            <nav className="space-y-1">
+              {mainNavItems.map((item) => <NavButton key={item.label} item={item} />)}
+            </nav>
+          </div>
+
+          <div>
+            <p className={`px-3 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest transition-opacity
+              ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0'}`}>System</p>
+            <nav className="space-y-1">
+              {secondaryNavItems.map((item) => <NavButton key={item.label} item={item} />)}
+            </nav>
+          </div>
+        </div>
+
+        {/* Footer info or profile teaser */}
+        <div className="p-4 border-t border-slate-100 bg-slate-50/50">
+          <button className={`w-full flex items-center p-3 rounded-xl transition-all text-rose-500 hover:bg-rose-50 mb-3 group ${!isOpen && 'lg:justify-center'}`}>
+            <ICONS.LogOut size={20} className="group-hover:scale-110 transition-transform shrink-0" />
+            <span className={`ml-3 font-semibold text-sm transition-all duration-200 
+              ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0 overflow-hidden'}`}>Logout</span>
+          </button>
+
+          <div className={`flex items-center ${isOpen ? 'px-1' : 'lg:justify-center'}`}>
+            <div className="w-10 h-10 rounded-xl bg-slate-200 overflow-hidden ring-2 ring-white shadow-sm shrink-0">
+              <img src="https://picsum.photos/seed/user1/40" alt="Profile" className="w-full h-full object-cover" />
+            </div>
+            <div className={`ml-3 overflow-hidden transition-all duration-200 
+              ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0 overflow-hidden'}`}>
+              <p className="text-sm font-bold text-slate-800 truncate">Alex Anderson</p>
+              <p className="text-[10px] font-medium text-slate-500 truncate">Senior Lead</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  );
+};
