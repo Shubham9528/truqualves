@@ -96,7 +96,7 @@ export const COMPLIANCE_TREND_DATA = [
 export const DISTRIBUTION_DATA = [
   { name: 'Validated', value: 400, color: '#10b981' },
   { name: 'In Review', value: 300, color: '#f59e0b' },
-  { name: 'Pending', value: 200, color: '#3b82f6' },
+  { name: 'Pending', value: 200, color: '#0d9488' },
   { name: 'Failed', value: 100, color: '#ef4444' },
 ];
 

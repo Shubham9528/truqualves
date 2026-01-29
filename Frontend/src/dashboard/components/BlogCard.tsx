@@ -17,7 +17,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute top-3 left-3">
-          <span className="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-blue-600 uppercase tracking-widest shadow-sm">
+          <span className="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-teal-600 uppercase tracking-widest shadow-sm">
             {post.category}
           </span>
         </div>
@@ -30,7 +30,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
           <span>{post.publishDate}</span>
         </div>
         
-        <h3 className="font-bold text-lg text-slate-800 mb-3 line-clamp-2 leading-tight group-hover:text-blue-600 transition-colors">
+        <h3 className="font-bold text-lg text-slate-800 mb-3 line-clamp-2 leading-tight group-hover:text-teal-600 transition-colors">
           {post.title}
         </h3>
         
@@ -39,7 +39,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
         </p>
         
         <div className="flex items-center justify-between pt-4 border-t border-slate-50">
-          <button className="text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors flex items-center gap-1 group/btn">
+          <button className="text-sm font-bold text-teal-600 hover:text-teal-700 transition-colors flex items-center gap-1 group/btn">
             Read More 
             <ICONS.ArrowUpRight size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
           </button>

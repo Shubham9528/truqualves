@@ -7,7 +7,7 @@ export const ActivityTable: React.FC = () => {
     <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
       <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
         <h3 className="font-bold text-lg text-slate-800">Recent Activity</h3>
-        <button className="text-blue-600 text-sm font-semibold hover:underline flex items-center gap-1">
+        <button className="text-teal-600 text-sm font-semibold hover:underline flex items-center gap-1">
           View All <ICONS.ArrowUpRight size={14} />
         </button>
       </div>
@@ -68,7 +68,7 @@ const StatusBadge: React.FC<{ status: string }> = ({ status }) => {
     success: 'bg-emerald-50 text-emerald-600',
     warning: 'bg-amber-50 text-amber-600',
     error: 'bg-rose-50 text-rose-600',
-    pending: 'bg-blue-50 text-blue-600'
+    pending: 'bg-teal-50 text-teal-600'
   };
   
   return (

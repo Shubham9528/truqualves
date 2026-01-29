@@ -25,7 +25,7 @@ const BlogsView: React.FC = () => {
           <h2 className="text-2xl font-bold text-slate-800">Resource Library</h2>
           <p className="text-slate-500 text-sm font-medium">Compliance insights, industry news, and validation tutorials.</p>
         </div>
-        <button className="bg-blue-600 text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20 flex items-center gap-2 w-fit">
+        <button className="bg-teal-600 text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-teal-700 transition-all shadow-md shadow-teal-500/20 flex items-center gap-2 w-fit">
           <ICONS.Plus size={18} /> Create New Post
         </button>
       </div>
@@ -39,7 +39,7 @@ const BlogsView: React.FC = () => {
             placeholder="Search by title or keywords..." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 transition-all"
+            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/10 focus:border-teal-500 transition-all"
           />
         </div>
         
@@ -50,7 +50,7 @@ const BlogsView: React.FC = () => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
                 selectedCategory === cat 
-                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' 
+                  ? 'bg-teal-600 text-white shadow-lg shadow-teal-200' 
                   : 'bg-slate-50 text-slate-500 hover:bg-slate-100'
               }`}
             >
@@ -76,7 +76,7 @@ const BlogsView: React.FC = () => {
           <p className="text-slate-500 text-sm">Try adjusting your search terms or category filters.</p>
           <button 
             onClick={() => {setSearchTerm(''); setSelectedCategory('All');}}
-            className="mt-4 text-blue-600 font-semibold text-sm hover:underline"
+            className="mt-4 text-teal-600 font-semibold text-sm hover:underline"
           >
             Clear all filters
           </button>
@@ -89,7 +89,7 @@ const BlogsView: React.FC = () => {
            <button className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 disabled:opacity-50" disabled>
              <ICONS.Bell size={18} className="rotate-90" />
            </button>
-           <button className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-blue-200">1</button>
+           <button className="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-teal-200">1</button>
            <button className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-sm font-bold text-slate-600 hover:bg-slate-50">2</button>
            <button className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50">
              <ICONS.Bell size={18} className="-rotate-90" />

@@ -32,18 +32,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
         }}
         className={`w-full flex items-center p-3 rounded-xl transition-all group ${
           isActive 
-            ? 'bg-blue-50 text-blue-600' 
+            ? 'bg-teal-50 text-teal-600' 
             : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
         }`}
       >
-        <Icon size={20} className={`${isActive ? 'text-blue-600' : 'group-hover:text-slate-800'}`} />
+        <Icon size={20} className={`${isActive ? 'text-teal-600' : 'group-hover:text-slate-800'}`} />
         {/* On mobile, we always want to show the text if the sidebar is open */}
         <span className={`ml-3 font-medium text-sm transition-all duration-200 
           ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0 overflow-hidden'}`}>
           {item.label}
         </span>
         {isActive && isOpen && (
-          <div className="ml-auto w-1.5 h-1.5 rounded-full bg-blue-600" />
+          <div className="ml-auto w-1.5 h-1.5 rounded-full bg-teal-600" />
         )}
       </button>
     );
@@ -56,12 +56,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView, isO
       overflow-hidden`}
     >
       <div className="flex flex-col h-full w-64 lg:w-auto">
-        {/* Logo Section */}
+            {/* Logo Section */}
         <div className="h-16 flex items-center px-6 border-b border-slate-100 shrink-0">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shrink-0">
-            T
-          </div>
-          <span className={`ml-3 font-poppins font-bold text-xl text-slate-800 tracking-tight transition-all duration-200
+          <img src="/assets/logo.png" alt="TruQual" className="w-12 h-12 object-contain shrink-0" />
+          <span className={`font-urbanist font-extrabold text-2xl  text-slate-800 tracking-tight transition-all duration-200
             ${isOpen ? 'opacity-100' : 'lg:opacity-0 lg:w-0 overflow-hidden'}`}>
             TruQual
           </span>

@@ -54,9 +54,9 @@ export const ChartsSection: React.FC = () => {
               <Line 
                 type="monotone" 
                 dataKey="score" 
-                stroke="#2563eb" 
+                stroke="#0d9488" 
                 strokeWidth={3} 
-                dot={{r: 4, fill: '#2563eb', strokeWidth: 2, stroke: '#fff'}}
+                dot={{r: 4, fill: '#0d9488', strokeWidth: 2, stroke: '#fff'}}
                 activeDot={{r: 6}}
               />
               <Line 

@@ -9,12 +9,12 @@ import { ICONS } from './constants';
 
 const PlaceholderView: React.FC<{ title: string; description: string }> = ({ title, description }) => (
   <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 flex flex-col items-center justify-center py-20 bg-white rounded-3xl border border-slate-100 shadow-sm px-6 text-center">
-    <div className="bg-blue-50 p-6 rounded-3xl mb-6">
-      <ICONS.Settings size={48} className="text-blue-600 opacity-50" />
+    <div className="bg-teal-50 p-6 rounded-3xl mb-6">
+      <ICONS.Settings size={48} className="text-teal-600 opacity-50" />
     </div>
     <h2 className="text-2xl font-bold text-slate-800 mb-2">{title}</h2>
     <p className="text-slate-500 max-w-md mx-auto">{description}</p>
-    <button className="mt-8 bg-blue-600 text-white px-8 py-3 rounded-2xl font-bold text-sm shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition-all">
+    <button className="mt-8 bg-teal-600 text-white px-8 py-3 rounded-2xl font-bold text-sm shadow-xl shadow-teal-500/20 hover:bg-teal-700 transition-all">
       Configuration Panel
     </button>
   </div>

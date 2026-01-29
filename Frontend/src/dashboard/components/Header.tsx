@@ -27,11 +27,11 @@ export const Header: React.FC<HeaderProps> = ({ activeView, toggleSidebar }) => 
       {/* Responsive Search - Hidden on Small Devices */}
       <div className="flex-1 max-w-xl mx-4 md:mx-8 hidden sm:block">
         <div className="relative group">
-          <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors" size={18} />
+          <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-teal-500 transition-colors" size={18} />
           <input 
             type="text" 
             placeholder="Search..." 
-            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+            className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all"
           />
         </div>
       </div>
@@ -54,7 +54,7 @@ export const Header: React.FC<HeaderProps> = ({ activeView, toggleSidebar }) => 
             <p className="text-xs font-semibold text-slate-800">Alex Anderson</p>
             <p className="text-[10px] text-slate-500">Compliance Officer</p>
           </div>
-          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold overflow-hidden shrink-0">
+          <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-bold overflow-hidden shrink-0">
              <img src="https://picsum.photos/seed/user1/40" alt="Avatar" />
           </div>
         </button>

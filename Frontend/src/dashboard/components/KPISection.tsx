@@ -12,8 +12,8 @@ export const KPISection: React.FC = () => {
         return (
           <div key={kpi.label} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow group">
             <div className="flex justify-between items-start mb-4">
-              <div className="p-2.5 bg-slate-50 rounded-xl group-hover:bg-blue-50 transition-colors">
-                <Icon size={24} className="text-slate-600 group-hover:text-blue-600 transition-colors" />
+              <div className="p-2.5 bg-slate-50 rounded-xl group-hover:bg-teal-50 transition-colors">
+                <Icon size={24} className="text-slate-600 group-hover:text-teal-600 transition-colors" />
               </div>
               <div className={`flex items-center text-xs font-semibold px-2 py-1 rounded-full ${
                 isUp ? 'text-emerald-600 bg-emerald-50' : 'text-rose-600 bg-rose-50'
