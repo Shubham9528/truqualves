@@ -1,4 +1,5 @@
 import { sendContactEmail } from "../services/emailService.js";
+import dotenv from "dotenv";
 dotenv.config();
 export const handleContactForm = async (req, res) => {
   try {
@@ -6,15 +7,7 @@ export const handleContactForm = async (req, res) => {
       req.body;
 
     // Validate required fields
-    if (
-      !firstName ||
-      !lastName ||
-      !email ||
-      !phone ||
-      !company ||
-      !service ||
-      !message
-    ) {
+    if (!firstName || !lastName || !email || !company || !service || !message) {
       return res.status(400).json({
         success: false,
         message: "Please fill in all required fields",
