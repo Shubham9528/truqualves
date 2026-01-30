@@ -11,6 +11,7 @@ const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const BlogsPage = lazy(() => import("./pages/BlogsPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
+const BlogDetails = lazy(() => import("./pages/blogs/BlogDetails"));
 const Dashboard = lazy(() => import("./dashboard/App"));
 const MainLayout = () => {
     return (
@@ -34,6 +35,7 @@ export default function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/services" element={<ServicesPage />} />
                     <Route path="/blogs" element={<BlogsPage />} />
+                    <Route path="/blogs/:id" element={<BlogDetails />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/contact" element={<ContactPage />} />
                 </Route>

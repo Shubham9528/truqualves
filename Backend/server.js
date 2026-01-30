@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import contactRoutes from "./routes/contactRoutes.js";
+import blogRoutes from "./routes/blogRoutes.js";
 import connectDB from "./services/mongodbService.js";
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/contact", contactRoutes);
+app.use("/api/blogs", blogRoutes);
 
 // Start server
 app.listen(port, () => {

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AnimatedContent from "../components/animated-content";
 import { ArrowUpRight } from "lucide-react";
 
@@ -40,41 +41,43 @@ export default function BlogsPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {allPosts.map((post, index) => (
                             <AnimatedContent key={post.id} delay={0.05 * index}>
-                                <article className="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                                    <div className="relative overflow-hidden aspect-video">
-                                        <img
-                                            src={post.image}
-                                            alt={post.title}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                        />
-                                    </div>
-                                    <div className="p-6 flex-1 flex flex-col">
-                                        <div className="flex items-center gap-3 text-sm text-gray-600 mb-3">
-                                            <span className="font-semibold text-slate-900">{post.author}</span>
-                                            <span>•</span>
-                                            <span>{post.date}</span>
+                                <Link to={`/blogs/${post.id}`} className="block h-full">
+                                    <article className="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                                        <div className="relative overflow-hidden aspect-video">
+                                            <img
+                                                src={post.image}
+                                                alt={post.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
                                         </div>
-                                        <div className="flex justify-between items-start gap-4 mb-2">
-                                            <h3 className="text-xl font-bold text-slate-900 transition-colors">
-                                                {post.title}
-                                            </h3>
-                                            <ArrowUpRight className="w-5 h-5 text-gray-400 transition-colors shrink-0" />
+                                        <div className="p-6 flex-1 flex flex-col">
+                                            <div className="flex items-center gap-3 text-sm text-gray-600 mb-3">
+                                                <span className="font-semibold text-slate-900">{post.author}</span>
+                                                <span>•</span>
+                                                <span>{post.date}</span>
+                                            </div>
+                                            <div className="flex justify-between items-start gap-4 mb-2">
+                                                <h3 className="text-xl font-bold text-slate-900 transition-colors">
+                                                    {post.title}
+                                                </h3>
+                                                <ArrowUpRight className="w-5 h-5 text-gray-400 transition-colors shrink-0" />
+                                            </div>
+                                            <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-1">
+                                                {post.description}
+                                            </p>
+                                            <div className="flex flex-wrap gap-2 mt-auto">
+                                                {post.category.map((cat, idx) => (
+                                                    <span
+                                                        key={idx}
+                                                        className="px-2.5 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
+                                                    >
+                                                        {cat}
+                                                    </span>
+                                                ))}
+                                            </div>
                                         </div>
-                                        <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-1">
-                                            {post.description}
-                                        </p>
-                                        <div className="flex flex-wrap gap-2 mt-auto">
-                                            {post.category.map((cat, idx) => (
-                                                <span
-                                                    key={idx}
-                                                    className="px-2.5 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
-                                                >
-                                                    {cat}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </article>
+                                    </article>
+                                </Link>
                             </AnimatedContent>
                         ))}
                     </div>
