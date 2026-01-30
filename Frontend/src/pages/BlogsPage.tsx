@@ -1,14 +1,46 @@
 import { Link } from "react-router-dom";
 import AnimatedContent from "../components/animated-content";
 import { ArrowUpRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-import { blogPosts } from "../data/blog-posts";
+// Define Interface matching the Backend Data
+interface BackendBlog {
+  id: number;
+  title: string;
+  author: string;
+  date: string;
+  image: string;
+  description: string;
+  category: string[];
+}
 
 export default function BlogsPage() {
+    const [allPosts, setAllPosts] = useState<BackendBlog[]>([]);
+    const [loading, setLoading] = useState(true);
 
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/blogs`);
+                setAllPosts(res.data);
+            } catch (err) {
+                console.error("Error fetching blogs:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
 
+        fetchBlogs();
+    }, []);
 
-    const allPosts = blogPosts;
+    if (loading) {
+         return (
+            <div className="min-h-screen flex items-center justify-center bg-white">
+                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-white">
@@ -43,11 +75,11 @@ export default function BlogsPage() {
                             <AnimatedContent key={post.id} delay={0.05 * index}>
                                 <Link to={`/blogs/${post.id}`} className="block h-full">
                                     <article className="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                                        <div className="relative overflow-hidden aspect-video">
+                                        <div className="relative overflow-hidden aspect-video bg-slate-50">
                                             <img
                                                 src={post.image}
                                                 alt={post.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                                             />
                                         </div>
                                         <div className="p-6 flex-1 flex flex-col">
@@ -57,15 +89,15 @@ export default function BlogsPage() {
                                                 <span>{post.date}</span>
                                             </div>
                                             <div className="flex justify-between items-start gap-4 mb-2">
-                                                <h3 className="text-xl font-bold text-slate-900 transition-colors">
+                                                <h3 className="text-xl font-bold text-slate-900 transition-colors line-clamp-2">
                                                     {post.title}
                                                 </h3>
                                                 <ArrowUpRight className="w-5 h-5 text-gray-400 transition-colors shrink-0" />
                                             </div>
-                                            <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-1">
+                                            <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-1 line-clamp-2">
                                                 {post.description}
                                             </p>
-                                            <div className="flex flex-wrap gap-2 mt-auto">
+                                            {/* <div className="flex flex-wrap gap-2 mt-auto">
                                                 {post.category.map((cat, idx) => (
                                                     <span
                                                         key={idx}
@@ -74,7 +106,7 @@ export default function BlogsPage() {
                                                         {cat}
                                                     </span>
                                                 ))}
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </article>
                                 </Link>

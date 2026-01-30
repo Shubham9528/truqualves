@@ -2,21 +2,66 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
 import AnimatedContent from "../../components/animated-content";
-import { blogPosts } from "../../data/blog-posts";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+// Define Interface matching the Backend Data
+interface BackendBlog {
+  id: number;
+  title: string;
+  description: string;
+  author: string;
+  date: string;
+  image: string;
+  category: string[];
+  featured: boolean;
+  contentBody?: {
+    introduction: string;
+    keyTakeaways: string[];
+    elaborated: string;
+    quote: string;
+    conclusion: string;
+  };
+}
 
 export default function BlogDetails() {
     const { id } = useParams<{ id: string }>();
-    const post = blogPosts.find((p) => p.id === Number(id));
+    const [post, setPost] = useState<BackendBlog | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        
+        const fetchBlog = async () => {
+            try {
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/blogs/${id}`);
+                setPost(res.data);
+            } catch (err) {
+                console.error("Error fetching blog details:", err);
+                setError("Blog post not found or failed to load.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (id) {
+            fetchBlog();
+        }
     }, [id]);
 
-    if (!post) {
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-white">
+                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
+            </div>
+        );
+    }
+
+    if (error || !post) {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center bg-white">
-                <h1 className="text-2xl font-bold text-slate-900 mb-4">Blog Post Not Found</h1>
+                <h1 className="text-2xl font-bold text-slate-900 mb-4">{error || "Blog Post Not Found"}</h1>
                 <Link to="/blogs" className="text-teal-600 hover:text-teal-700 font-medium flex items-center gap-2">
                     <ArrowLeft className="w-4 h-4" />
                     Back to Blogs
@@ -67,27 +112,32 @@ export default function BlogDetails() {
                         </div>
                     </div>
 
-                    <div className="rounded-2xl overflow-hidden shadow-lg mb-12 bg-slate-100 max-w-xl mx-auto h-[300px]">
+                    <div className="rounded-2xl overflow-hidden shadow-lg mb-12 bg-slate-50 max-w-xl mx-auto h-[300px]">
                         <img 
                             src={post.image} 
                             alt={post.title} 
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                         />
                     </div>
 
                     <div className="prose prose-lg prose-slate max-w-none">
+                        <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">Description</h3>
                         <p className="text-xl text-slate-600 leading-relaxed mb-8 font-light">
                             {post.description}
                         </p>
                         
                         {/* Full content from data */}
                         <div className="space-y-6 text-gray-600">
-                            <p>
-                                {post.contentBody?.introduction || "Description not available."}
-                            </p>
-                            {post.contentBody?.keyTakeaways && (
+                            {post.contentBody?.introduction && (
                                 <>
-                                    <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Key Takeaways</h3>
+                                    <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">Introduction</h3>
+                                    <p>{post.contentBody.introduction}</p>
+                                </>
+                            )}
+
+                            {post.contentBody?.keyTakeaways && post.contentBody.keyTakeaways.length > 0 && (
+                                <>
+                                    <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">Key Takeaways</h3>
                                     <ul className="list-disc pl-6 space-y-2">
                                         {post.contentBody.keyTakeaways.map((item, index) => (
                                             <li key={index}>{item}</li>
@@ -95,17 +145,26 @@ export default function BlogDetails() {
                                     </ul>
                                 </>
                             )}
-                            <p>
-                                {post.contentBody?.elaborated}
-                            </p>
+
+                            {post.contentBody?.elaborated && (
+                                <>
+                                    <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">Detailed Insights</h3>
+                                    <p>{post.contentBody.elaborated}</p>
+                                </>
+                            )}
+
                             {post.contentBody?.quote && (
                                 <blockquote className="border-l-4 border-teal-500 pl-4 italic my-8 text-slate-700 bg-slate-50 py-4 pr-4 rounded-r-lg">
                                     "{post.contentBody.quote}"
                                 </blockquote>
                             )}
-                            <p>
-                                {post.contentBody?.conclusion}
-                            </p>
+
+                            {post.contentBody?.conclusion && (
+                                <>
+                                    <h3 className="text-xl font-bold text-slate-800 mt-8 mb-3">Conclusion</h3>
+                                    <p>{post.contentBody.conclusion}</p>
+                                </>
+                            )}
                         </div>
                     </div>
 
