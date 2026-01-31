@@ -27,3 +27,21 @@ export interface BlogPost {
 }
 
 export type ViewType = 'Dashboard' | 'Blogs' | 'Settings' | 'Support';
+
+export interface BackendBlog {
+  id: number;
+  title: string;
+  description: string;
+  author: string;
+  date: string;
+  image: string;
+  category: string[];
+  featured: boolean;
+  contentBody?: {
+    introduction: string;
+    keyTakeaways: string[];
+    elaborated: string;
+    quote: string;
+    conclusion: string;
+  };
+}
