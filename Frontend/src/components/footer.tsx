@@ -1,4 +1,5 @@
 // import { LinkedinIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
@@ -41,6 +42,7 @@ export default function Footer() {
                             <a className="hover:text-teal-600 transition" href="/">Linkedin</a>
                             <a className="hover:text-teal-600 transition" href="/">Mail</a>
                             <a className="hover:text-teal-600 transition" href="/">Phone</a>
+                            <Link className="hover:text-teal-600 transition" to="/dashboard">Dashboard</Link>
                         </div>
                     </div>
                     <div>
