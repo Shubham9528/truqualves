@@ -39,7 +39,7 @@ export default function App() {
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/contact" element={<ContactPage />} />
                 </Route>
-                <Route path="/dashboard/" element={
+                <Route path="/dashboard" element={ 
                     <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
                         <Dashboard />
                     </Suspense>
