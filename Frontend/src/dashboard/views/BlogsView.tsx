@@ -33,6 +33,7 @@ const BlogsView: React.FC = () => {
   const [editingBlogId, setEditingBlogId] = useState<number | null>(null);
 
   // Form State
+  const [existingImage, setExistingImage] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -90,6 +91,7 @@ const BlogsView: React.FC = () => {
       conclusion: blog.contentBody?.conclusion || ''
     });
     setEditingBlogId(blog.id);
+    setExistingImage(blog.image);
     setIsEditing(true);
     setIsFormOpen(true);
   };
@@ -112,6 +114,7 @@ const BlogsView: React.FC = () => {
       category: '', introduction: '', keyTakeaways: '', elaborated: '', quote: '', conclusion: ''
     });
     setImageFile(null);
+    setExistingImage(null);
     setIsEditing(false);
     setEditingBlogId(null);
     setFormError('');
@@ -141,11 +144,9 @@ const BlogsView: React.FC = () => {
 
       if (imageFile) {
         data.append('image', imageFile);
+      } else if (isEditing && existingImage) {
+        data.append('image', existingImage);
       } else {
-        // Fallback image or error? Backend requires image string.
-        // If we don't upload a file, we might fail validation unless we send a dummy string url.
-        // For now, let's assume user uploads file.
-        // Or send a placeholder URL if valid.
          data.append('image', 'https://via.placeholder.com/800x400');
       }
 
@@ -328,7 +329,8 @@ const BlogsView: React.FC = () => {
                                 <input type="file" accept="image/*" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                                 <div className="flex flex-col items-center gap-2 text-slate-500">
                                     <ICONS.FileText size={24} />
-                                    <span className="text-sm font-medium">{imageFile ? imageFile.name : 'Click to upload image'}</span>
+                                    <span className="text-sm font-medium">{imageFile ? imageFile.name : (existingImage ? 'Keep Current Image' : 'Click to upload image')}</span>
+                                    {!imageFile && existingImage && <span className="text-[10px] text-teal-600 truncate max-w-[200px]">{existingImage}</span>}
                                 </div>
                             </div>
                         </div>
