@@ -1,7 +1,7 @@
 
 import React from 'react';
-import type { BlogPost } from '../types';
-import { ICONS } from '../constants';
+import type { BlogPost } from '../../types';
+import { ICONS } from '../../constants';
 
 interface BlogCardProps {
   post: BlogPost;
