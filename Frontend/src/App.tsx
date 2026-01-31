@@ -4,6 +4,7 @@ import Toaster from "./components/toaster";
 import Footer from "./components/footer";
 import LenisScroll from "./components/lenis";
 import Navbar from "./components/navbar";
+import { Atom } from "react-loading-indicators";
 
 // Lazy load page components
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -18,7 +19,7 @@ const MainLayout = () => {
         <div>
             <LenisScroll />
             <Navbar />
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+            <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Atom color="#0d9488" size="medium" text="" textColor="#0d9488" /></div>}>
                 <Outlet />
             </Suspense>
             <Footer />
@@ -40,7 +41,7 @@ export default function App() {
                     <Route path="/contact" element={<ContactPage />} />
                 </Route>
                 <Route path="/dashboard" element={ 
-                    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+                    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Atom color="#0d9488" size="medium" text="" textColor="#0d9488" /></div>}>
                         <Dashboard />
                     </Suspense>
                 } />
